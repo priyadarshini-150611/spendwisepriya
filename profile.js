@@ -2,7 +2,7 @@
    SPENDWISE - SHARED USER PROFILE
    ========================================================= */
 
-const PROFILE_API_BASE = `${window.location.protocol}//${window.location.hostname}:8080/api`;
+const API_BASE ="https://spendwise-backend-stvh.onrender.com/api";
 
 async function loadSharedUserProfile() {
   try {
