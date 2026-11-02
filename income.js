@@ -2,7 +2,7 @@
    SPENDWISE - INCOME PAGE
    Connected to Spring Boot + MySQL
    ========================================================= */
-const API_BASE = `${window.location.protocol}//${window.location.hostname}:8080/api`;
+const API_BASE ="https://spendwise-backend-stvh.onrender.com/api";
 
 let incomeData = [];
 const recordsPerPage = 5;
