@@ -13,7 +13,7 @@ let savingsData = [];
    BACKEND API
    ========================================================= */
 
-const API_BASE = `${window.location.protocol}//${window.location.hostname}:8080/api`;
+const API_BASE ="https://spendwise-backend-stvh.onrender.com/api";
 const SAVINGS_API_BASE = `${API_BASE}/savings-goals`;
 async function savingsApiRequest(url, options = {}) {
   const response = await fetch(url, {
