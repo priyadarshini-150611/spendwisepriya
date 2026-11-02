@@ -1,0 +1,778 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Analytics | SpendWise</title>
+
+    <link rel="stylesheet" href="analytics.css" />
+  </head>
+
+  <body>
+    <!-- =====================================================
+         ANALYTICS LAYOUT
+         ===================================================== -->
+
+    <div class="analytics-layout">
+
+      <!-- =================================================
+           SIDEBAR
+           ================================================= -->
+
+      <aside class="sidebar">
+
+        <!-- Logo -->
+
+        <a href="dashboard.html" class="sidebar-logo">
+          <span>💰</span>
+          <strong>SpendWise</strong>
+        </a>
+
+        <!-- Navigation -->
+
+        <nav class="sidebar-nav">
+
+          <p class="nav-label">MENU</p>
+
+          <a href="dashboard.html" class="nav-link">
+            <span>▦</span>
+            Dashboard
+          </a>
+
+          <a href="expenses.html" class="nav-link">
+            <span>↕</span>
+            Expenses
+          </a>
+
+          <a href="income.html" class="nav-link">
+            <span>↗</span>
+            Income
+          </a>
+
+          <a href="budgets.html" class="nav-link">
+            <span>◫</span>
+            Budgets
+          </a>
+
+          <a href="savings.html" class="nav-link">
+            <span>☆</span>
+            Savings Goals
+          </a>
+
+          <p class="nav-label second-label">ANALYZE</p>
+
+          <a href="analytics.html" class="nav-link active">
+            <span>◒</span>
+            Analytics
+          </a>
+
+          <a href="insights.html" class="nav-link">
+            <span>✦</span>
+            Financial Insights
+          </a>
+
+        </nav>
+
+        <!-- Sidebar Bottom -->
+
+        <div class="sidebar-bottom">
+
+          <a href="settings.html" class="nav-link">
+            <span>⚙</span>
+            Settings
+          </a>
+
+          <a href="index.html" class="nav-link logout">
+            <span>↪</span>
+            Logout
+          </a>
+
+        </div>
+
+      </aside>
+
+      <!-- Mobile Navigation Overlay -->
+
+      <div
+        class="mobile-nav-overlay"
+        id="mobileNavOverlay"
+      ></div>
+
+
+      <!-- =================================================
+           MAIN AREA
+           ================================================= -->
+
+      <main class="analytics-main">
+
+        <!-- =================================================
+             HEADER
+             ================================================= -->
+
+        <header class="analytics-header">
+
+          <!-- Mobile Logo -->
+
+          <!-- Hamburger -->
+
+            <button
+              class="hamburger-button"
+              id="hamburgerBtn"
+              type="button"
+              aria-label="Open navigation"
+              aria-expanded="false"
+            >
+              ☰
+            </button>
+
+          <div class="mobile-logo">
+            <span>💰</span>
+            <strong>SpendWise</strong>
+          </div>
+
+          <!-- Header Actions -->
+
+          <div class="header-actions">
+
+            
+
+            <!-- Notification -->
+
+            <button
+              class="notification-button"
+              type="button"
+              aria-label="Notifications"
+            >
+              🔔
+            </button>
+
+            <!-- Profile -->
+
+            <div class="profile">
+
+              <div class="profile-avatar">
+                P
+              </div>
+
+              <div class="profile-info">
+
+                <strong>Priya</strong>
+
+                <span>My Account</span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </header>
+
+
+        <!-- =================================================
+             ANALYTICS CONTENT
+             ================================================= -->
+
+        <section class="analytics-content">
+
+          <!-- =================================================
+               PAGE INTRO
+               ================================================= -->
+
+          <div class="page-intro">
+
+            <div>
+
+              <p class="page-label">
+                FINANCIAL ANALYTICS
+              </p>
+
+              <h1>
+                Analytics
+              </h1>
+
+              <p>
+                Understand your financial patterns and make smarter decisions.
+              </p>
+
+            </div>
+
+
+            <!-- Period Filter -->
+
+            <div class="period-filter">
+
+              <label for="analyticsPeriod">
+                PERIOD
+              </label>
+
+              <select id="analyticsPeriod">
+
+                <option value="all">
+                  All Time
+                </option>
+
+                <option value="month">
+                  This Month
+                </option>
+
+                <option value="3months">
+                  Last 3 Months
+                </option>
+
+                <option value="6months">
+                  Last 6 Months
+                </option>
+
+                <option value="year">
+                  This Year
+                </option>
+
+              </select>
+
+            </div>
+
+          </div>
+
+
+          <!-- =================================================
+               SUMMARY CARDS
+               ================================================= -->
+
+          <div class="analytics-summary">
+
+            <!-- Income -->
+
+            <div class="analytics-card">
+
+              <div class="analytics-card-top">
+
+                <span>
+                  TOTAL INCOME
+                </span>
+
+                <div class="analytics-icon">
+                  ↗
+                </div>
+
+              </div>
+
+              <h2 id="analyticsIncome">
+                ₹0
+              </h2>
+
+              <p>
+                <span id="incomeChange">
+                  0%
+                </span>
+                compared with previous period
+              </p>
+
+            </div>
+
+
+            <!-- Expenses -->
+
+            <div class="analytics-card">
+
+              <div class="analytics-card-top">
+
+                <span>
+                  TOTAL EXPENSES
+                </span>
+
+                <div class="analytics-icon">
+                  ↘
+                </div>
+
+              </div>
+
+              <h2 id="analyticsExpenses">
+                ₹0
+              </h2>
+
+              <p>
+                <span id="expenseChange">
+                  0%
+                </span>
+                compared with previous period
+              </p>
+
+            </div>
+
+
+            <!-- Savings -->
+
+            <div class="analytics-card">
+
+              <div class="analytics-card-top">
+
+                <span>
+                  SAVINGS
+                </span>
+
+                <div class="analytics-icon">
+                  ☆
+                </div>
+
+              </div>
+
+              <h2 id="analyticsSavings">
+                ₹0
+              </h2>
+
+              <p>
+                <span id="savingsRate">
+                  0%
+                </span>
+                savings rate
+              </p>
+
+            </div>
+
+
+            <!-- Transactions -->
+
+            <div class="analytics-card balance-card">
+
+              <div class="analytics-card-top">
+
+                <span>
+                  TRANSACTIONS
+                </span>
+
+                <div class="analytics-icon">
+                  #
+                </div>
+
+              </div>
+
+              <h2 id="analyticsTransactions">
+                0
+              </h2>
+
+              <p>
+                Total recorded transactions
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- =================================================
+               INCOME VS EXPENSE
+               ================================================= -->
+
+          <div class="analytics-grid">
+
+            <!-- Cash Flow -->
+
+            <div class="analytics-panel">
+
+              <div class="panel-heading">
+
+                <div>
+
+                  <p>
+                    CASH FLOW
+                  </p>
+
+                  <h2>
+                    Income vs Expenses
+                  </h2>
+
+                </div>
+
+                <span class="more">
+                  •••
+                </span>
+
+              </div>
+
+
+              <!-- Chart -->
+
+              <div
+                class="cash-flow-chart"
+                id="cashFlowChart"
+              >
+
+                <div class="chart-y-axis">
+
+                  <span>₹100K</span>
+                  <span>₹75K</span>
+                  <span>₹50K</span>
+                  <span>₹25K</span>
+                  <span>₹0</span>
+
+                </div>
+
+
+                <div class="chart-area">
+
+                  <div class="chart-grid-lines">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                  </div>
+
+
+                  <div
+                    class="chart-bars"
+                    id="cashFlowBars"
+                  >
+                  </div>
+
+
+                  <div
+                    class="chart-months"
+                    id="chartMonths"
+                  >
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <!-- Legend -->
+
+              <div class="chart-legend">
+
+                <span>
+                  <i class="income-dot"></i>
+                  Income
+                </span>
+
+                <span>
+                  <i class="expense-dot"></i>
+                  Expenses
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 SAVINGS RATE
+                 ================================================= -->
+
+            <div class="analytics-panel">
+
+              <div class="panel-heading">
+
+                <div>
+
+                  <p>
+                    SAVINGS PERFORMANCE
+                  </p>
+
+                  <h2>
+                    Savings Rate
+                  </h2>
+
+                </div>
+
+              </div>
+
+
+              <div class="savings-rate-container">
+
+                <div class="savings-circle">
+
+                  <div>
+
+                    <strong id="savingsRateCircle">
+                      0%
+                    </strong>
+
+                    <span>
+                      saved
+                    </span>
+
+                  </div>
+
+                </div>
+
+
+                <div class="savings-rate-info">
+
+                  <div>
+
+                    <span>
+                      Income
+                    </span>
+
+                    <strong id="rateIncome">
+                      ₹0
+                    </strong>
+
+                  </div>
+
+
+                  <div>
+
+                    <span>
+                      Expenses
+                    </span>
+
+                    <strong id="rateExpenses">
+                      ₹0
+                    </strong>
+
+                  </div>
+
+
+                  <div>
+
+                    <span>
+                      Saved
+                    </span>
+
+                    <strong id="rateSaved">
+                      ₹0
+                    </strong>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- =================================================
+               CATEGORY SPENDING
+               ================================================= -->
+
+          <div class="analytics-grid">
+
+            <!-- Category Chart -->
+
+            <div class="analytics-panel">
+
+              <div class="panel-heading">
+
+                <div>
+
+                  <p>
+                    SPENDING BREAKDOWN
+                  </p>
+
+                  <h2>
+                    Spending by Category
+                  </h2>
+
+                </div>
+
+                <select id="categoryPeriod">
+
+                  <option value="all">
+                    All Categories
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div
+                class="category-chart"
+                id="categoryChart"
+              >
+              </div>
+
+            </div>
+
+
+            <!-- Top Categories -->
+
+            <div class="analytics-panel">
+
+              <div class="panel-heading">
+
+                <div>
+
+                  <p>
+                    TOP SPENDING
+                  </p>
+
+                  <h2>
+                    Highest Categories
+                  </h2>
+
+                </div>
+
+              </div>
+
+
+              <div
+                class="category-list"
+                id="topCategories"
+              >
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- =================================================
+               MONTHLY TREND
+               ================================================= -->
+
+          <div class="analytics-panel trend-panel">
+
+            <div class="panel-heading">
+
+              <div>
+
+                <p>
+                  SPENDING TREND
+                </p>
+
+                <h2>
+                  Monthly Expense Trend
+                </h2>
+
+              </div>
+
+
+              <select id="trendPeriod">
+
+                <option value="6">
+                  Last 6 Months
+                </option>
+
+                <option value="12">
+                  Last 12 Months
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div
+              class="trend-chart"
+              id="trendChart"
+            >
+            </div>
+
+          </div>
+
+
+          <!-- =================================================
+               FINANCIAL STATISTICS
+               ================================================= -->
+
+          <div class="statistics-grid">
+
+            <div class="stat-panel">
+
+              <span>
+                AVERAGE MONTHLY EXPENSE
+              </span>
+
+              <strong id="averageExpense">
+                ₹0
+              </strong>
+
+            </div>
+
+
+            <div class="stat-panel">
+
+              <span>
+                LARGEST EXPENSE
+              </span>
+
+              <strong id="largestExpense">
+                ₹0
+              </strong>
+
+            </div>
+
+
+            <div class="stat-panel">
+
+              <span>
+                TOP CATEGORY
+              </span>
+
+              <strong id="topCategory">
+                —
+              </strong>
+
+            </div>
+
+
+            <div class="stat-panel">
+
+              <span>
+                AVERAGE TRANSACTION
+              </span>
+
+              <strong id="averageTransaction">
+                ₹0
+              </strong>
+
+            </div>
+
+          </div>
+
+
+          <!-- =================================================
+               SMART ANALYTICS INSIGHT
+               ================================================= -->
+
+          <div class="smart-insight">
+
+            <div class="insight-icon">
+              ✦
+            </div>
+
+            <div>
+
+              <p>
+                SMART FINANCIAL INSIGHT
+              </p>
+
+              <h2 id="analyticsInsightTitle">
+                Your financial insight will appear here.
+              </h2>
+
+              <span id="analyticsInsightText">
+                SpendWise is analyzing your income and expense patterns.
+              </span>
+
+            </div>
+
+          </div>
+
+        </section>
+
+      </main>
+
+    </div>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+    <script src="profile.js"></script>
+    <script src="analytics.js"></script>
+
+  </body>
+</html>

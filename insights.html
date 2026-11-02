@@ -1,0 +1,786 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <title>Financial Insights | SpendWise</title>
+
+    <link rel="stylesheet" href="insights.css" />
+  </head>
+
+  <body>
+    <!-- =====================================================
+         INSIGHTS LAYOUT
+         ===================================================== -->
+
+    <div class="insights-layout">
+
+      <!-- =================================================
+           SIDEBAR
+           ================================================= -->
+
+      <aside class="sidebar">
+
+        <!-- Logo -->
+
+        <a href="dashboard.html" class="sidebar-logo">
+          <span>💰</span>
+          <strong>SpendWise</strong>
+        </a>
+
+
+        <!-- Navigation -->
+
+        <nav class="sidebar-nav">
+
+          <p class="nav-label">
+            MAIN
+          </p>
+
+
+          <a href="dashboard.html" class="nav-link">
+            <span>▦</span>
+            Dashboard
+          </a>
+
+
+          <a href="expenses.html" class="nav-link">
+            <span>↕</span>
+            Expenses
+          </a>
+
+
+          <a href="income.html" class="nav-link">
+            <span>↗</span>
+            Income
+          </a>
+
+
+          <a href="budgets.html" class="nav-link">
+            <span>◫</span>
+            Budgets
+          </a>
+
+
+          <a href="savings.html" class="nav-link">
+            <span>☆</span>
+            Savings Goals
+          </a>
+
+
+          <p class="nav-label second-label">
+            ANALYZE
+          </p>
+
+
+          <a href="analytics.html" class="nav-link">
+            <span>◒</span>
+            Analytics
+          </a>
+
+
+          <a
+            href="insights.html"
+            class="nav-link active"
+          >
+            <span>✦</span>
+            Financial Insights
+          </a>
+
+        </nav>
+
+
+        <!-- Sidebar Bottom -->
+
+        <div class="sidebar-bottom">
+
+          <a href="settings.html" class="nav-link">
+            <span>⚙</span>
+            Settings
+          </a>
+
+
+          <a
+            href="index.html"
+            class="nav-link logout"
+          >
+            <span>↪</span>
+            Logout
+          </a>
+
+        </div>
+
+      </aside>
+
+
+      <!-- =================================================
+           MOBILE NAV OVERLAY
+           ================================================= -->
+
+      <div
+        class="mobile-nav-overlay"
+        id="mobileNavOverlay"
+      ></div>
+
+
+      <!-- =================================================
+           MAIN AREA
+           ================================================= -->
+
+      <main class="insights-main">
+
+
+        <!-- =================================================
+             HEADER
+             ================================================= -->
+
+        <header class="insights-header">
+
+          <!-- Hamburger -->
+
+          <button
+            class="hamburger-button"
+            id="hamburgerBtn"
+            type="button"
+            aria-label="Open navigation"
+            aria-expanded="false"
+          >
+            ☰
+          </button>
+
+
+          <!-- Mobile Logo -->
+
+          <div class="mobile-logo">
+
+            <span>💰</span>
+            SpendWise
+
+          </div>
+
+
+          <!-- Header Actions -->
+
+          <div class="header-actions">
+
+            <button
+              class="notification-button"
+              type="button"
+              aria-label="Notifications"
+            >
+              🔔
+            </button>
+
+
+            <div class="profile">
+
+              <div class="profile-avatar">
+                P
+              </div>
+
+
+              <div class="profile-info">
+
+                <strong>
+                  Priya
+                </strong>
+
+                <span>
+                  My Account
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </header>
+
+
+        <!-- =================================================
+             INSIGHTS CONTENT
+             ================================================= -->
+
+        <section class="insights-content">
+
+
+          <!-- =================================================
+               PAGE INTRO
+               ================================================= -->
+
+          <div class="page-intro">
+
+            <div>
+
+              <p class="page-label">
+                SMART FINANCIAL ANALYSIS
+              </p>
+
+
+              <h1>
+                Financial Insights
+              </h1>
+
+
+              <p>
+                Get personalized insights to understand
+                your money and make smarter financial decisions.
+              </p>
+
+            </div>
+
+
+            <!-- Refresh Button -->
+
+            <button
+              type="button"
+              class="refresh-insights-button"
+              id="refreshInsights"
+            >
+              <span>↻</span>
+              Refresh Insights
+            </button>
+
+          </div>
+
+
+          <!-- =================================================
+               FINANCIAL HEALTH
+               ================================================= -->
+
+          <div class="health-card">
+
+            <div class="health-icon">
+              ✦
+            </div>
+
+
+            <div class="health-content">
+
+              <p>
+                FINANCIAL HEALTH
+              </p>
+
+
+              <h2 id="financialHealthTitle">
+                Analyzing your finances...
+              </h2>
+
+
+              <span id="financialHealthText">
+                SpendWise is reviewing your income,
+                expenses, savings and budgets.
+              </span>
+
+            </div>
+
+
+            <div class="health-score">
+
+              <strong id="healthScore">
+                0
+              </strong>
+
+              <span>
+                / 100
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <!-- =================================================
+               INSIGHT SUMMARY
+               ================================================= -->
+
+          <div class="insight-summary-grid">
+
+
+            <!-- Income -->
+
+            <div class="summary-card">
+
+              <div class="summary-card-top">
+
+                <span>
+                  INCOME
+                </span>
+
+                <div class="summary-icon">
+                  ↗
+                </div>
+
+              </div>
+
+
+              <h2 id="insightIncome">
+                ₹0
+              </h2>
+
+
+              <p>
+                Total recorded income
+              </p>
+
+            </div>
+
+
+            <!-- Expenses -->
+
+            <div class="summary-card">
+
+              <div class="summary-card-top">
+
+                <span>
+                  EXPENSES
+                </span>
+
+                <div class="summary-icon">
+                  ↘
+                </div>
+
+              </div>
+
+
+              <h2 id="insightExpenses">
+                ₹0
+              </h2>
+
+
+              <p>
+                Total recorded expenses
+              </p>
+
+            </div>
+
+
+            <!-- Savings -->
+
+            <div class="summary-card">
+
+              <div class="summary-card-top">
+
+                <span>
+                  SAVINGS
+                </span>
+
+                <div class="summary-icon">
+                  ☆
+                </div>
+
+              </div>
+
+
+              <h2 id="insightSavings">
+                ₹0
+              </h2>
+
+
+              <p>
+                Current savings
+              </p>
+
+            </div>
+
+
+            <!-- Savings Rate -->
+
+            <div class="summary-card dark-card">
+
+              <div class="summary-card-top">
+
+                <span>
+                  SAVINGS RATE
+                </span>
+
+                <div class="summary-icon">
+                  %
+                </div>
+
+              </div>
+
+
+              <h2 id="insightSavingsRate">
+                0%
+              </h2>
+
+
+              <p>
+                Income saved
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- =================================================
+               MAIN INSIGHTS
+               ================================================= -->
+
+          <div class="insights-grid">
+
+
+            <!-- Spending Insight -->
+
+            <div class="insight-panel">
+
+              <div class="panel-heading">
+
+                <div>
+
+                  <p>
+                    SPENDING ANALYSIS
+                  </p>
+
+                  <h2>
+                    Your Spending
+                  </h2>
+
+                </div>
+
+                <span class="panel-icon">
+                  ↘
+                </span>
+
+              </div>
+
+
+              <div class="insight-message">
+
+                <div class="message-icon">
+                  !
+                </div>
+
+
+                <div>
+
+                  <strong id="spendingInsightTitle">
+                    Analyzing spending...
+                  </strong>
+
+
+                  <p id="spendingInsightText">
+                    Your spending insight will appear here.
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- Income Insight -->
+
+            <div class="insight-panel">
+
+              <div class="panel-heading">
+
+                <div>
+
+                  <p>
+                    INCOME ANALYSIS
+                  </p>
+
+                  <h2>
+                    Your Income
+                  </h2>
+
+                </div>
+
+                <span class="panel-icon">
+                  ↗
+                </span>
+
+              </div>
+
+
+              <div class="insight-message">
+
+                <div class="message-icon">
+                  +
+                </div>
+
+
+                <div>
+
+                  <strong id="incomeInsightTitle">
+                    Analyzing income...
+                  </strong>
+
+
+                  <p id="incomeInsightText">
+                    Your income insight will appear here.
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- =================================================
+               BUDGET INSIGHT
+               ================================================= -->
+
+          <div class="insight-panel budget-insight-panel">
+
+            <div class="panel-heading">
+
+              <div>
+
+                <p>
+                  BUDGET PERFORMANCE
+                </p>
+
+                <h2>
+                  Budget Insight
+                </h2>
+
+              </div>
+
+              <span class="panel-icon">
+                ◫
+              </span>
+
+            </div>
+
+
+            <div
+              class="budget-insight-content"
+              id="budgetInsight"
+            >
+
+              <div class="message-icon">
+                ◫
+              </div>
+
+
+              <div>
+
+                <strong id="budgetInsightTitle">
+                  Analyzing your budgets...
+                </strong>
+
+
+                <p id="budgetInsightText">
+                  SpendWise will compare your spending
+                  with your budget limits.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- =================================================
+               SAVINGS INSIGHT
+               ================================================= -->
+
+          <div class="insight-panel savings-insight-panel">
+
+            <div class="panel-heading">
+
+              <div>
+
+                <p>
+                  SAVINGS PERFORMANCE
+                </p>
+
+                <h2>
+                  Savings Opportunity
+                </h2>
+
+              </div>
+
+              <span class="panel-icon">
+                ☆
+              </span>
+
+            </div>
+
+
+            <div
+              class="budget-insight-content"
+              id="savingsInsight"
+            >
+
+              <div class="message-icon">
+                $
+              </div>
+
+
+              <div>
+
+                <strong id="savingsInsightTitle">
+                  Analyzing your savings...
+                </strong>
+
+
+                <p id="savingsInsightText">
+                  SpendWise will identify opportunities
+                  to increase your savings.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- =================================================
+               TOP SPENDING CATEGORY / RECOMMENDATION
+               ================================================= -->
+
+          <div class="insights-grid">
+
+
+            <!-- Top Spending Category -->
+
+            <div class="insight-panel">
+
+              <div class="panel-heading">
+
+                <div>
+
+                  <p>
+                    HIGHEST SPENDING
+                  </p>
+
+                  <h2>
+                    Top Expense Category
+                  </h2>
+
+                </div>
+
+              </div>
+
+
+              <div class="category-highlight">
+
+                <div class="category-big-icon">
+                  ₹
+                </div>
+
+
+                <div>
+
+                  <strong id="topInsightCategory">
+                    —
+                  </strong>
+
+
+                  <p id="topInsightCategoryAmount">
+                    ₹0 spent
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- Recommendation -->
+
+            <div class="insight-panel">
+
+              <div class="panel-heading">
+
+                <div>
+
+                  <p>
+                    SMART RECOMMENDATION
+                  </p>
+
+                  <h2>
+                    Recommended Action
+                  </h2>
+
+                </div>
+
+              </div>
+
+
+              <div class="recommendation">
+
+                <div class="recommendation-icon">
+                  ✦
+                </div>
+
+
+                <p id="recommendationText">
+                  Add some financial transactions
+                  to receive a personalized recommendation.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- =================================================
+               SMART FINANCIAL INSIGHT
+               ================================================= -->
+
+          <div class="smart-insight">
+
+            <div class="insight-icon">
+              ✦
+            </div>
+
+
+            <div>
+
+              <p>
+                SMART FINANCIAL INSIGHT
+              </p>
+
+
+              <h2 id="mainInsightTitle">
+                Your personalized financial insight
+                will appear here.
+              </h2>
+
+
+              <span id="mainInsightText">
+                SpendWise is analyzing your financial
+                activity.
+              </span>
+
+            </div>
+
+          </div>
+
+
+        </section>
+
+      </main>
+
+    </div>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+    <script src="profile.js"></script>
+    <script src="insights.js"></script>
+
+  </body>
+</html>

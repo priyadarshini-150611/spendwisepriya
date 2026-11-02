@@ -1,0 +1,425 @@
+/* =========================================================
+   SPENDWISE LOGOUT
+   ========================================================= */
+
+:root {
+
+  --black: #111111;
+  --dark: #1c1c1c;
+  --dark-grey: #292929;
+
+  --grey: #dcdcdc;
+  --light-grey: #eeeeee;
+
+  --snow: #fafafa;
+  --white: #ffffff;
+
+  --text: #171717;
+  --muted: #707070;
+
+  --border: #dddddd;
+
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+
+}
+
+
+html,
+body {
+
+  width: 100%;
+  min-height: 100%;
+
+}
+
+
+body {
+
+  min-height: 100vh;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  background: var(--snow);
+
+  color: var(--text);
+
+}
+
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+.logout-page {
+
+  min-height: 100vh;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 25px;
+
+}
+
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
+.logout-card {
+
+  width: 100%;
+
+  max-width: 460px;
+
+  padding: 45px 40px;
+
+  text-align: center;
+
+  background: var(--white);
+
+  border: 1px solid var(--border);
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.07);
+
+}
+
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+.brand {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 9px;
+
+  margin-bottom: 35px;
+
+}
+
+
+.brand-icon {
+
+  font-size: 27px;
+
+  line-height: 1;
+
+}
+
+
+.brand-name {
+
+  font-size: 25px;
+
+  font-weight: 700;
+
+  letter-spacing: -0.7px;
+
+}
+
+
+/* =========================================================
+   LOGOUT ICON
+   ========================================================= */
+
+.logout-icon {
+
+  width: 64px;
+
+  height: 64px;
+
+  margin: 0 auto 25px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: var(--light-grey);
+
+  color: var(--black);
+
+  font-size: 27px;
+
+}
+
+
+/* =========================================================
+   HEADING
+   ========================================================= */
+
+.logout-card h1 {
+
+  margin-bottom: 12px;
+
+  font-size: 28px;
+
+  line-height: 1.2;
+
+  letter-spacing: -0.7px;
+
+}
+
+
+/* =========================================================
+   MESSAGE
+   ========================================================= */
+
+.logout-message {
+
+  max-width: 350px;
+
+  margin: 0 auto;
+
+  color: var(--muted);
+
+  font-size: 14px;
+
+  line-height: 1.6;
+
+}
+
+
+/* =========================================================
+   ACTIONS
+   ========================================================= */
+
+.logout-actions {
+
+  margin-top: 30px;
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 12px;
+
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.cancel-button,
+.logout-button {
+
+  min-height: 44px;
+
+  padding: 0 25px;
+
+  border-radius: 8px;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+
+}
+
+
+.cancel-button {
+
+  border: 1px solid var(--border);
+
+  background: var(--white);
+
+  color: var(--text);
+
+}
+
+
+.cancel-button:hover {
+
+  background: var(--light-grey);
+
+}
+
+
+.logout-button {
+
+  border: 1px solid var(--black);
+
+  background: var(--black);
+
+  color: var(--white);
+
+}
+
+
+.logout-button:hover {
+
+  background: var(--dark-grey);
+
+  border-color: var(--dark-grey);
+
+}
+
+
+.cancel-button:active,
+.logout-button:active {
+
+  transform: translateY(1px);
+
+}
+
+
+/* =========================================================
+   NOTE
+   ========================================================= */
+
+.logout-note {
+
+  margin-top: 22px;
+
+  color: #999999;
+
+  font-size: 11px;
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .logout-page {
+
+    padding: 18px;
+
+  }
+
+
+  .logout-card {
+
+    padding: 35px 24px;
+
+    border-radius: 14px;
+
+  }
+
+
+  .brand {
+
+    margin-bottom: 30px;
+
+  }
+
+
+  .brand-name {
+
+    font-size: 22px;
+
+  }
+
+
+  .logout-icon {
+
+    width: 58px;
+
+    height: 58px;
+
+    margin-bottom: 22px;
+
+    font-size: 24px;
+
+  }
+
+
+  .logout-card h1 {
+
+    font-size: 25px;
+
+  }
+
+
+  .logout-message {
+
+    font-size: 13px;
+
+  }
+
+
+  .logout-actions {
+
+    flex-direction: row;
+
+  }
+
+
+  .cancel-button,
+  .logout-button {
+
+    flex: 1;
+
+    padding: 0 15px;
+
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+  .logout-card {
+
+    padding: 30px 18px;
+
+  }
+
+
+  .logout-actions {
+
+    flex-direction: column;
+
+  }
+
+
+  .cancel-button,
+  .logout-button {
+
+    width: 100%;
+
+  }
+
+}

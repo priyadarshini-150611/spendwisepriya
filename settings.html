@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Settings | SpendWise</title>
+
+  <link rel="stylesheet" href="settings.css">
+</head>
+
+<body>
+
+  <div class="settings-layout">
+
+     <!-- ================= SIDEBAR ================= -->
+
+      <aside class="sidebar">
+        <!-- Logo -->
+
+        <a href="dashboard.html" class="sidebar-logo">
+          <span>💰</span>
+
+          <strong>SpendWise</strong>
+        </a>
+
+        <!-- Navigation -->
+
+        <nav class="sidebar-nav">
+          <p class="nav-label">MAIN</p>
+
+          <a href="dashboard.html" class="nav-link">
+            <span>▦</span>
+            Dashboard
+          </a>
+
+          <a href="expenses.html" class="nav-link">
+            <span>↕</span>
+            Expenses
+          </a>
+
+          <a href="income.html" class="nav-link">
+            <span>↗</span>
+            Income
+          </a>
+
+          <a href="budgets.html" class="nav-link">
+            <span>◫</span>
+            Budgets
+          </a>
+
+          <a href="savings.html" class="nav-link">
+            <span>☆</span>
+            Savings Goals
+          </a>
+
+          <p class="nav-label second-label">ANALYZE</p>
+
+          <a href="analytics.html" class="nav-link">
+            <span>◒</span>
+            Analytics
+          </a>
+
+          <a href="insights.html" class="nav-link">
+            <span>✦</span>
+            Financial Insights
+          </a>
+        </nav>
+
+        <!-- Sidebar Bottom -->
+
+        <div class="sidebar-bottom">
+          <a href="settings.html" class="nav-link active">
+            <span>⚙</span>
+            Settings
+          </a>
+
+          <a href="index.html" class="nav-link logout">
+            <span>↪</span>
+            Logout
+          </a>
+        </div>
+      </aside>
+
+      <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main class="settings-main">
+
+
+      <!-- ===================================================
+           HEADER
+           =================================================== -->
+
+      <header class="settings-header">
+
+
+        <!-- HAMBURGER -->
+
+        <button
+          class="hamburger-button"
+          id="hamburgerBtn"
+          type="button"
+          aria-label="Open navigation"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+
+
+        <!-- MOBILE LOGO -->
+
+        <div class="mobile-logo">
+          <span>💰</span>
+          <strong>SpendWise</strong>
+        </div>
+
+
+        <!-- HEADER ACTIONS -->
+
+        <div class="header-actions">
+
+
+          <!-- NOTIFICATION -->
+
+          <button
+              class="notification-button"
+              type="button"
+              aria-label="Notifications"
+            >
+              🔔
+            </button>
+
+
+
+          <!-- PROFILE -->
+
+          <div class="profile">
+
+            <div class="profile-avatar">
+              P
+            </div>
+
+            <div class="profile-info">
+
+              <strong>
+                Priya
+              </strong>
+
+              <span>
+                My Account
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </header>
+
+
+      <!-- ===================================================
+           CONTENT
+           =================================================== -->
+
+      <section class="settings-content">
+
+
+        <!-- PAGE INTRO -->
+
+        <div class="page-intro">
+
+          <p class="page-label">
+            ACCOUNT SETTINGS
+          </p>
+
+          <h1>
+            Settings
+          </h1>
+
+          <p>
+            Manage your account and preferences.
+          </p>
+
+        </div>
+
+
+        <!-- =================================================
+             PROFILE INFORMATION
+             ================================================= -->
+
+        <section class="settings-card">
+
+          <div class="settings-card-header">
+
+            <p class="card-label">
+              ACCOUNT
+            </p>
+
+            <h2>
+              Profile Information
+            </h2>
+
+            <p>
+              Update your personal account information.
+            </p>
+
+          </div>
+
+
+          <div class="settings-form-grid">
+
+
+            <div class="form-group">
+
+              <label for="profileName">
+                Full Name
+              </label>
+
+              <input
+                type="text"
+                id="profileName"
+                placeholder="Enter your full name"
+              >
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="profileEmail">
+                Email Address
+              </label>
+
+              <input
+                type="email"
+                id="profileEmail"
+                placeholder="Enter your email address"
+              >
+
+            </div>
+
+          </div>
+
+
+          <div class="settings-card-footer">
+
+            <button
+              type="button"
+              class="save-button"
+              id="saveProfileBtn"
+            >
+              Save Profile
+            </button>
+
+          </div>
+
+        </section>
+
+
+        <!-- =================================================
+             CHANGE PASSWORD
+             ================================================= -->
+
+        <section class="settings-card">
+
+          <div class="settings-card-header">
+
+            <p class="card-label">
+              SECURITY
+            </p>
+
+            <h2>
+              Change Password
+            </h2>
+
+            <p>
+              Keep your account secure with a strong password.
+            </p>
+
+          </div>
+
+
+          <div class="settings-form-grid">
+
+
+            <div class="form-group">
+
+              <label for="currentPassword">
+                Current Password
+              </label>
+
+              <input
+                type="password"
+                id="currentPassword"
+                placeholder="Enter current password"
+              >
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="newPassword">
+                New Password
+              </label>
+
+              <input
+                type="password"
+                id="newPassword"
+                placeholder="Enter new password"
+              >
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="confirmPassword">
+                Confirm New Password
+              </label>
+
+              <input
+                type="password"
+                id="confirmPassword"
+                placeholder="Confirm new password"
+              >
+
+            </div>
+
+          </div>
+
+
+          <div class="settings-card-footer">
+
+            <button
+              type="button"
+              class="save-button"
+              id="changePasswordBtn"
+            >
+              Change Password
+            </button>
+
+          </div>
+
+        </section>
+
+
+        <!-- =================================================
+             NOTIFICATIONS
+             ================================================= -->
+
+        <section class="settings-card">
+
+          <div class="settings-card-header">
+
+            <p class="card-label">
+              PREFERENCES
+            </p>
+
+            <h2>
+              Notifications
+            </h2>
+
+            <p>
+              Choose which financial updates you want to receive.
+            </p>
+
+          </div>
+
+
+          <div class="preference-list">
+
+
+            <!-- GENERAL NOTIFICATIONS -->
+
+            <div class="preference-item">
+
+              <div class="preference-info">
+
+                <h3>
+                  Notifications
+                </h3>
+
+                <p>
+                  Receive important account and financial updates.
+                </p>
+
+              </div>
+
+
+              <label class="switch">
+
+                <input
+                  type="checkbox"
+                  id="notificationToggle"
+                  checked
+                >
+
+                <span class="slider"></span>
+
+              </label>
+
+            </div>
+
+
+            <!-- BUDGET ALERTS -->
+
+            <div class="preference-item">
+
+              <div class="preference-info">
+
+                <h3>
+                  Budget Alerts
+                </h3>
+
+                <p>
+                  Get notified when your spending approaches a budget limit.
+                </p>
+
+              </div>
+
+
+              <label class="switch">
+
+                <input
+                  type="checkbox"
+                  id="budgetAlertToggle"
+                  checked
+                >
+
+                <span class="slider"></span>
+
+              </label>
+
+            </div>
+
+
+            <!-- FINANCIAL INSIGHTS -->
+
+            <div class="preference-item">
+
+              <div class="preference-info">
+
+                <h3>
+                  Financial Insights
+                </h3>
+
+                <p>
+                  Receive useful insights about your spending habits.
+                </p>
+
+              </div>
+
+
+              <label class="switch">
+
+                <input
+                  type="checkbox"
+                  id="insightToggle"
+                  checked
+                >
+
+                <span class="slider"></span>
+
+              </label>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- =================================================
+             APPEARANCE
+             ================================================= -->
+
+        <section class="settings-card">
+
+          <div class="settings-card-header">
+
+            <p class="card-label">
+              DISPLAY
+            </p>
+
+            <h2>
+              Appearance
+            </h2>
+
+            <p>
+              Choose how SpendWise looks on your device.
+            </p>
+
+          </div>
+
+
+          <div class="appearance-options">
+
+
+            <button
+              type="button"
+              class="appearance-option active"
+              id="lightModeBtn"
+            >
+
+              <span class="appearance-icon">
+                ☀
+              </span>
+
+              <span>
+
+                <strong>
+                  Light Mode
+                </strong>
+
+                <small>
+                  Clean and bright
+                </small>
+
+              </span>
+
+            </button>
+
+
+            <button
+              type="button"
+              class="appearance-option"
+              id="darkModeBtn"
+            >
+
+              <span class="appearance-icon">
+                ◐
+              </span>
+
+              <span>
+
+                <strong>
+                  Dark Mode
+                </strong>
+
+                <small>
+                  Easier on the eyes
+                </small>
+
+              </span>
+
+            </button>
+
+          </div>
+
+        </section>
+
+
+        <!-- =================================================
+             DANGER ZONE
+             ================================================= -->
+
+        <section class="settings-card danger-card">
+
+          <div class="settings-card-header">
+
+            <p class="card-label danger-label">
+              DANGER ZONE
+            </p>
+
+            <h2>
+              Delete Account
+            </h2>
+
+            <p>
+              Permanently remove your SpendWise account and stored data.
+            </p>
+
+          </div>
+
+
+          <div class="danger-action">
+
+            <div>
+
+              <strong>
+                Delete your account
+              </strong>
+
+              <p>
+                This action cannot be undone.
+              </p>
+
+            </div>
+
+
+            <button
+              type="button"
+              class="delete-button"
+              id="deleteAccountBtn"
+            >
+              Delete Account
+            </button>
+
+          </div>
+
+        </section>
+
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <script src="profile.js"></script>
+  <script src="settings.js"></script>
+
+</body>
+</html>

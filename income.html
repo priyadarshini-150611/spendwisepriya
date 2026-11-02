@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Income | SpendWise</title>
+
+    <link rel="stylesheet" href="income.css" />
+  </head>
+
+  <body>
+    <div class="income-layout">
+      <!-- =====================================================
+             SIDEBAR
+             ===================================================== -->
+
+      <aside class="sidebar">
+        <!-- Logo -->
+
+        <a href="dashboard.html" class="sidebar-logo">
+          <span>💰</span>
+          <strong>SpendWise</strong>
+        </a>
+
+        <!-- Navigation -->
+
+        <nav class="sidebar-nav">
+          <p class="nav-label">MAIN</p>
+
+          <a href="dashboard.html" class="nav-link">
+            <span>▦</span>
+
+            Dashboard
+          </a>
+
+          <a href="expenses.html" class="nav-link">
+            <span>↕</span>
+
+            Expenses
+          </a>
+
+          <a href="income.html" class="nav-link active">
+            <span>↗</span>
+
+            Income
+          </a>
+
+          <a href="budgets.html" class="nav-link">
+            <span>◫</span>
+
+            Budgets
+          </a>
+
+          <a href="savings.html" class="nav-link">
+            <span>☆</span>
+
+            Savings Goals
+          </a>
+
+          <p class="nav-label second-label">ANALYZE</p>
+
+          <a href="analytics.html" class="nav-link">
+            <span>◒</span>
+
+            Analytics
+          </a>
+
+          <a href="insights.html" class="nav-link">
+            <span>✦</span>
+
+            Financial Insights
+          </a>
+        </nav>
+
+        <!-- Bottom Navigation -->
+
+        <div class="sidebar-bottom">
+          <a href="settings.html" class="nav-link">
+            <span>⚙</span>
+
+            Settings
+          </a>
+
+          <a href="index.html" class="nav-link logout">
+            <span>↪</span>
+
+            Logout
+          </a>
+        </div>
+      </aside>
+
+      <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+
+      <!-- =====================================================
+             MAIN
+             ===================================================== -->
+
+      <main class="income-main">
+        <!-- =================================================
+                 HEADER
+                 ================================================= -->
+
+         
+<header class="income-header">
+
+  <!-- Mobile Logo -->
+   <!-- Hamburger Menu -->
+
+  <button
+            class="hamburger-button"
+            id="hamburgerBtn"
+            type="button"
+            aria-label="Open navigation"
+            aria-expanded="false"
+          >
+            ☰
+          </button>
+
+  <div class="mobile-logo">
+    <span>💰 SpendWise</span>
+
+    
+  </div>
+
+  
+
+  
+
+
+          <!-- Header Actions -->
+
+          <div class="header-actions">
+            <button class="notification-button" type="button">🔔</button>
+
+            <div class="profile">
+              <div class="profile-avatar">P</div>
+
+              <div class="profile-info">
+                <strong>Priya</strong>
+
+                <span>My Account</span>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- =================================================
+                 CONTENT
+                 ================================================= -->
+
+        <section class="income-content">
+          <!-- =================================================
+                     PAGE INTRO
+                     ================================================= -->
+
+          <div class="page-intro">
+            <div>
+              <p class="page-label">FINANCIAL OVERVIEW</p>
+
+              <h1>Income</h1>
+
+              <p>Track and manage your income sources.</p>
+            </div>
+
+            <button class="add-income-btn" id="openIncomeModal" type="button">
+              <span>+</span>
+
+              Add Income
+            </button>
+          </div>
+
+          <!-- =================================================
+                     SUMMARY CARDS
+                     ================================================= -->
+
+          <section class="income-summary">
+            <!-- Total Income -->
+
+            <article class="summary-card dark-card">
+              <div class="summary-top">
+                <span> TOTAL INCOME </span>
+
+                <span class="summary-icon"> ₹ </span>
+              </div>
+
+              <h2 id="totalIncome">₹0</h2>
+
+              <p>Total income recorded</p>
+            </article>
+
+            <!-- This Month -->
+
+            <article class="summary-card">
+              <div class="summary-top">
+                <span> THIS MONTH </span>
+
+                <span class="summary-icon"> ₹ </span>
+              </div>
+
+              <h2 id="monthlyIncome">₹0</h2>
+
+              <p>Income received this month</p>
+            </article>
+
+            <!-- This Week -->
+
+            <article class="summary-card">
+              <div class="summary-top">
+                <span> THIS WEEK </span>
+
+                <span class="summary-icon"> ↗ </span>
+              </div>
+
+              <h2 id="weeklyIncome">₹0</h2>
+
+              <p>Income received this week</p>
+            </article>
+
+            <!-- Transactions -->
+
+            <article class="summary-card">
+              <div class="summary-top">
+                <span> TRANSACTIONS </span>
+
+                <span class="summary-icon"> # </span>
+              </div>
+
+              <h2 id="incomeCount">0</h2>
+
+              <p>Total income transactions</p>
+            </article>
+          </section>
+
+          <!-- =================================================
+                     SEARCH + FILTER
+                     ================================================= -->
+
+          <section class="income-tools">
+            <!-- Search -->
+
+            <div class="search-box">
+              <span> ⌕ </span>
+
+              <input
+                type="text"
+                id="searchIncome"
+                placeholder="Search income..."
+              />
+            </div>
+
+            <!-- Filters -->
+
+            <div class="filter-group">
+              <select id="incomeSourceFilter">
+                <option value="all">All Sources</option>
+
+                <option value="Salary">Salary</option>
+
+                <option value="Freelance">Freelance</option>
+
+                <option value="Business">Business</option>
+
+                <option value="Investment">Investment</option>
+
+                <option value="Gift">Gift</option>
+
+                <option value="Other">Other</option>
+              </select>
+
+              <select id="incomeDateFilter">
+                <option value="all">All Dates</option>
+
+                <option value="today">Today</option>
+
+                <option value="week">This Week</option>
+
+                <option value="month">This Month</option>
+              </select>
+            </div>
+          </section>
+
+          <!-- =================================================
+                     INCOME TABLE CARD
+                     ================================================= -->
+
+          <section class="income-card">
+            <!-- Table Heading -->
+
+            <div class="table-heading">
+              <div>
+                <p>TRANSACTION HISTORY</p>
+
+                <h2>Income Transactions</h2>
+              </div>
+
+              <button class="export-btn" id="exportIncome" type="button">
+                ↓ Export CSV
+              </button>
+            </div>
+
+            <!-- Table -->
+
+            <div class="table-wrapper">
+              <table>
+                <thead>
+                  <tr>
+                    <th>DATE</th>
+
+                    <th>INCOME SOURCE</th>
+
+                    <th>DESCRIPTION</th>
+
+                    <th>CATEGORY</th>
+
+                    <th>AMOUNT</th>
+
+                    <th>ACTIONS</th>
+                  </tr>
+                </thead>
+
+                <tbody id="incomeTableBody">
+                  <!-- JavaScript will insert rows -->
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Empty State -->
+
+            <div class="empty-state" id="emptyState">
+              <div class="empty-icon">₹</div>
+
+              <h3>No income records found</h3>
+
+              <p>Add your first income transaction to get started.</p>
+            </div>
+
+            <!-- Pagination -->
+
+            <div class="pagination">
+              <span id="paginationInfo"> Showing 0–0 of 0 </span>
+
+              <div class="page-buttons">
+                <button id="previousPage" type="button">‹</button>
+
+                <div id="pageNumbers" class="page-number-list">
+                  <!-- JavaScript will insert page numbers -->
+                </div>
+
+                <button id="nextPage" type="button">›</button>
+              </div>
+            </div>
+          </section>
+
+          <!-- =================================================
+                     SMART INSIGHT
+                     ================================================= -->
+
+          <section class="income-insight">
+            <div class="insight-symbol">✦</div>
+
+            <div>
+              <p>SMART INCOME INSIGHT</p>
+
+              <h2 id="incomeInsightTitle">
+                Your income overview will appear here.
+              </h2>
+
+              <span id="incomeInsightText">
+                Add income transactions to receive useful financial insights.
+              </span>
+            </div>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <!-- =========================================================
+         ADD / EDIT INCOME MODAL
+         ========================================================= -->
+
+    <div class="income-modal" id="incomeModal">
+      <div class="income-modal-box">
+        <!-- Modal Header -->
+
+        <div class="modal-header">
+          <div>
+            <p>INCOME RECORD</p>
+
+            <h2 id="modalTitle">Add Income</h2>
+          </div>
+
+          <button class="modal-close" id="closeIncomeModal" type="button">
+            ×
+          </button>
+        </div>
+
+        <!-- Form -->
+
+        <form id="incomeForm">
+          <!-- Row 1 -->
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="incomeSource"> Income Source </label>
+
+              <select id="incomeSource" required>
+                <option value="">Select source</option>
+
+                <option value="Salary">Salary</option>
+
+                <option value="Freelance">Freelance</option>
+
+                <option value="Business">Business</option>
+
+                <option value="Investment">Investment</option>
+
+                <option value="Gift">Gift</option>
+
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="incomeAmount"> Amount </label>
+
+              <input
+                type="number"
+                id="incomeAmount"
+                placeholder="Enter amount"
+                min="1"
+                step="0.01"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- Row 2 -->
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="incomeDate"> Date </label>
+
+              <input type="date" id="incomeDate" required />
+            </div>
+
+            <div class="form-group">
+              <label for="incomeCategory"> Category </label>
+
+              <select id="incomeCategory" required>
+                <option value="">Select category</option>
+
+                <option value="Primary">Primary</option>
+
+                <option value="Secondary">Secondary</option>
+
+                <option value="Passive">Passive</option>
+
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Description -->
+
+          <div class="form-group">
+            <label for="incomeDescription"> Description </label>
+
+            <input
+              type="text"
+              id="incomeDescription"
+              placeholder="Enter description"
+            />
+          </div>
+
+          <!-- Modal Actions -->
+
+          <div class="modal-actions">
+            <button type="button" class="cancel-btn" id="cancelIncome">
+              Cancel
+            </button>
+
+            <button type="submit" class="save-income-btn">Save Income</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- JavaScript -->
+    <script src="profile.js"></script>
+    <script src="income.js"></script>
+
+  </body>
+</html>

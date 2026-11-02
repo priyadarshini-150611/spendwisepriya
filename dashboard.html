@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Dashboard | SpendWise</title>
+
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+
+  <body>
+    <div class="dashboard-layout">
+      <!-- ================= SIDEBAR ================= -->
+
+      <aside class="sidebar">
+        <!-- Logo -->
+
+        <a href="dashboard.html" class="sidebar-logo">
+          <span>💰</span>
+
+          <strong>SpendWise</strong>
+        </a>
+
+        <!-- Navigation -->
+
+        <nav class="sidebar-nav">
+          <p class="nav-label">MAIN</p>
+
+          <a href="dashboard.html" class="nav-link active">
+            <span>▦</span>
+            Dashboard
+          </a>
+
+          <a href="expenses.html" class="nav-link">
+            <span>↕</span>
+            Expenses
+          </a>
+
+          <a href="income.html" class="nav-link">
+            <span>↗</span>
+            Income
+          </a>
+
+          <a href="budgets.html" class="nav-link">
+            <span>◫</span>
+            Budgets
+          </a>
+
+          <a href="savings.html" class="nav-link">
+            <span>☆</span>
+            Savings Goals
+          </a>
+
+          <p class="nav-label second-label">ANALYZE</p>
+
+          <a href="analytics.html" class="nav-link">
+            <span>◒</span>
+            Analytics
+          </a>
+
+          <a href="insights.html" class="nav-link">
+            <span>✦</span>
+            Financial Insights
+          </a>
+        </nav>
+
+        <!-- Sidebar Bottom -->
+
+        <div class="sidebar-bottom">
+          <a href="settings.html" class="nav-link">
+            <span>⚙</span>
+            Settings
+          </a>
+
+          <a href="index.html" class="nav-link logout">
+            <span>↪</span>
+            Logout
+          </a>
+        </div>
+      </aside>
+
+      <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+
+      <!-- ================= MAIN ================= -->
+
+      <main class="dashboard-main">
+        <!-- ================= TOPBAR ================= -->
+
+        <header class="dashboard-header">
+          <button
+            class="hamburger-button"
+            id="hamburgerBtn"
+            type="button"
+            aria-label="Open navigation"
+            aria-expanded="false"
+          >
+            ☰
+          </button>
+
+          <div class="mobile-logo">
+            <span>💰</span>
+
+            SpendWise
+          </div>
+
+          <div class="header-actions">
+            <button
+              class="notification-button"
+              type="button"
+              aria-label="Notifications"
+            >
+            🔔
+            </button>
+
+            <div class="profile">
+              <div class="profile-avatar" id="profileAvatar">P</div>
+
+              <div class="profile-info">
+                <strong id="profileName">My Account</strong>
+
+                <span> My Account </span>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- ================= DASHBOARD CONTENT ================= -->
+
+        <div class="dashboard-content">
+          <!-- Welcome -->
+
+          <section class="welcome-section">
+            <div>
+              <p class="welcome-label">OVERVIEW</p>
+
+              <h1 id="welcomeHeading">Welcome back!</h1>
+
+              <p>Here's what's happening with your money.</p>
+            </div>
+          </section>
+
+          <!-- ================= SUMMARY CARDS ================= -->
+
+          <section class="summary-grid">
+            <!-- Balance -->
+
+            <article class="summary-card balance-card">
+              <div class="card-top">
+                <span> TOTAL BALANCE </span>
+
+                <span class="card-icon"> ₹ </span>
+              </div>
+
+              <!-- Balance -->
+              <h2 id="totalBalance">₹0.00</h2>
+              <p>Available balance</p>
+
+              <p class="positive">
+                ↑ 8.4%
+                <span> from last month </span>
+              </p>
+            </article>
+
+            <!-- Income -->
+
+            <article class="summary-card">
+              <div class="card-top">
+                <span> TOTAL INCOME </span>
+
+                <span class="card-icon"> ↗ </span>
+              </div>
+
+              <!-- Income -->
+<h2 id="totalIncome">₹0.00</h2>
+<p>Total recorded income</p>
+
+              <p class="positive">
+                ↑ 5.2%
+                <span> from last month </span>
+              </p>
+            </article>
+
+            <!-- Expenses -->
+
+            <article class="summary-card">
+              <div class="card-top">
+                <span> TOTAL EXPENSES </span>
+
+                <span class="card-icon"> ↘ </span>
+              </div>
+
+              <!-- Expenses -->
+<h2 id="totalExpenses">₹0.00</h2>
+<p>Total recorded expenses</p>
+
+
+              <p class="negative">
+                ↑ 3.8%
+                <span> from last month </span>
+              </p>
+            </article>
+
+            <!-- Savings -->
+
+            <article class="summary-card">
+              <div class="card-top">
+                <span> NET SAVINGS </span>
+
+                <span class="card-icon"> ◉ </span>
+              </div>
+
+                
+<!-- Savings -->
+<h2 id="netSavings">₹0.00</h2>
+<p>Income minus expenses</p>
+
+              <p class="positive">
+                ↑ 12.5%
+                <span> from last month </span>
+              </p>
+            </article>
+          </section>
+
+          <!-- ================= MORE CONTENT ================= -->
+
+          <section class="dashboard-grid">
+            
+<!-- Spending Overview -->
+<article class="dashboard-card spending-card">
+  <div class="section-heading">
+    <div>
+      <p>SPENDING OVERVIEW</p>
+      <h2 id="spendingChartTitle">Monthly spending</h2>
+    </div>
+
+    <select id="spendingPeriod" aria-label="Spending chart period">
+      <option value="this-month">This month</option>
+      <option value="last-month">Last month</option>
+      <option value="this-year">This year</option>
+    </select>
+  </div>
+
+  <div class="chart-placeholder" id="spendingChart">
+    <p class="chart-status" id="spendingChartStatus" role="status">
+      Loading spending data...
+    </p>
+  </div>
+</article>
+
+            
+<!-- Budget -->
+<article class="dashboard-card budget-card">
+  <div class="section-heading">
+    <div>
+      <p>BUDGET</p>
+      <h2>Monthly limit</h2>
+    </div>
+
+    <span class="more"> ••• </span>
+  </div>
+
+  <div class="budget-amount">
+    <strong id="budgetSpent">₹0</strong>
+    <span> of <span id="budgetTotal">₹0</span></span>
+  </div>
+
+  <div
+    class="progress"
+    role="progressbar"
+    aria-label="Monthly budget used"
+    aria-valuemin="0"
+    aria-valuemax="100"
+    aria-valuenow="0"
+    id="budgetProgress"
+  >
+    <span id="budgetProgressBar" style="width: 0%"></span>
+  </div>
+
+  <p class="budget-note" id="budgetNote">
+    Loading budget details...
+  </p>
+</article>
+
+          </section>
+
+          <!-- ================= RECENT TRANSACTIONS ================= -->
+
+          <section class="transactions-card dashboard-card">
+            <div class="section-heading">
+              <div>
+                <p>TRANSACTIONS</p>
+
+                <h2>Recent transactions</h2>
+              </div>
+
+              <a href="expenses.html"> View all → </a>
+            </div>
+
+            <div class="transaction-list" id="transactionList">
+              <!-- Transaction 1 -->
+
+              <div class="transaction">
+                <div class="transaction-icon">🍔</div>
+
+                <div class="transaction-info">
+                  <strong> Food & Dining </strong>
+
+                  <span> Today · 12:30 PM </span>
+                </div>
+
+                <strong class="expense"> -₹850 </strong>
+              </div>
+
+              <!-- Transaction 2 -->
+
+              <div class="transaction">
+                <div class="transaction-icon">🛍️</div>
+
+                <div class="transaction-info">
+                  <strong> Shopping </strong>
+
+                  <span> Yesterday · 5:45 PM </span>
+                </div>
+
+                <strong class="expense"> -₹1,250 </strong>
+              </div>
+
+              <!-- Transaction 3 -->
+
+              <div class="transaction">
+                <div class="transaction-icon">🚕</div>
+
+                <div class="transaction-info">
+                  <strong> Transport </strong>
+
+                  <span> Yesterday · 9:20 AM </span>
+                </div>
+
+                <strong class="expense"> -₹420 </strong>
+              </div>
+
+              <!-- Transaction 4 -->
+
+              <div class="transaction">
+                <div class="transaction-icon">💼</div>
+
+                <div class="transaction-info">
+                  <strong> Salary </strong>
+
+                  <span> 01 Aug · 10:00 AM </span>
+                </div>
+
+                <strong class="income"> +₹30,000 </strong>
+              </div>
+            </div>
+          </section>
+
+          <!-- ================= INSIGHT ================= -->
+
+          
+          
+<!-- ================= INSIGHT ================= -->
+
+<section class="smart-insight">
+  <div class="insight-icon">✦</div>
+
+  <div>
+    <p>SMART INSIGHT</p>
+
+    <h2 id="smartInsightTitle">
+      Loading your financial insights...
+    </h2>
+
+    <span id="smartInsightDescription">
+      Analyzing your spending patterns.
+    </span>
+  </div>
+</section>
+
+
+        </div>
+      </main>
+    </div>
+
+    <script src="dashboard.js"></script>
+  </body>
+</html>

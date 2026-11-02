@@ -1,0 +1,635 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Expenses | SpendWise</title>
+
+    <link rel="stylesheet" href="expenses.css" />
+  </head>
+
+  <body>
+    <div class="expenses-layout">
+      <!-- ================= SIDEBAR ================= -->
+
+      <aside class="sidebar">
+        <a href="dashboard.html" class="sidebar-logo">
+          <span>💰</span>
+          <strong>SpendWise</strong>
+        </a>
+
+        <nav class="sidebar-nav">
+          <p class="nav-label">MAIN</p>
+
+          <a href="dashboard.html" class="nav-link">
+            <span>▦</span>
+            Dashboard
+          </a>
+
+          <a href="expenses.html" class="nav-link active">
+            <span>↕</span>
+            Expenses
+          </a>
+
+          <a href="income.html" class="nav-link">
+            <span>↗</span>
+            Income
+          </a>
+
+          <a href="budgets.html" class="nav-link">
+            <span>◫</span>
+            Budgets
+          </a>
+
+          <a href="savings.html" class="nav-link">
+            <span>☆</span>
+            Savings Goals
+          </a>
+
+          <p class="nav-label second-label">ANALYZE</p>
+
+          <a href="analytics.html" class="nav-link">
+            <span>◒</span>
+            Analytics
+          </a>
+
+          <a href="insights.html" class="nav-link">
+            <span>✦</span>
+            Financial Insights
+          </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <a href="settings.html" class="nav-link">
+            <span>⚙</span>
+            Settings
+          </a>
+
+          <a href="index.html" class="nav-link logout">
+            <span>↪</span>
+            Logout
+          </a>
+        </div>
+      </aside>
+
+     <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+
+      <!-- ================= MAIN ================= -->
+
+      <main class="expenses-main">
+        <!-- ================= HEADER ================= -->
+
+        <header class="expenses-header">
+          <button
+            class="hamburger-button"
+            id="hamburgerBtn"
+            type="button"
+            aria-label="Open navigation"
+            aria-expanded="false"
+          >
+            ☰
+          </button>
+
+          <div class="mobile-logo">
+            <span>💰</span>
+            SpendWise
+          </div>
+
+          <div class="header-actions">
+            <button class="notification-button" aria-label="Notifications">
+               🔔
+            </button>
+
+            <div class="profile">
+              <div class="profile-avatar">P</div>
+
+              <div class="profile-info">
+                <strong>Priya</strong>
+
+                <span>My Account</span>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- ================= CONTENT ================= -->
+
+        <div class="expenses-content">
+          <!-- ================= PAGE INTRO ================= -->
+
+          <section class="page-intro">
+            <div>
+              <p class="page-label">MONEY MANAGEMENT</p>
+
+              <h1>Expenses</h1>
+
+              <p>Track and manage where your money goes.</p>
+            </div>
+
+            <button class="add-expense-btn">
+              <span>+</span>
+
+              Add Expense
+            </button>
+          </section>
+
+          <!-- ================= SUMMARY ================= -->
+
+          <section class="expense-summary">
+            <article class="summary-card dark-card">
+              <div class="summary-top">
+                <span> TOTAL EXPENSES </span>
+
+                <span class="summary-icon"> ₹ </span>
+              </div>
+
+              <h2>₹12,500</h2>
+
+              <p>This month's spending</p>
+            </article>
+
+            <article class="summary-card">
+              <div class="summary-top">
+                <span> THIS MONTH </span>
+
+                <span class="summary-icon"> ↘ </span>
+              </div>
+
+              <h2>₹8,450</h2>
+
+              <p class="positive">↓ 4.2% from last month</p>
+            </article>
+
+            <article class="summary-card">
+              <div class="summary-top">
+                <span> TRANSACTIONS </span>
+
+                <span class="summary-icon"> # </span>
+              </div>
+
+              <h2>24</h2>
+
+              <p>Transactions this month</p>
+            </article>
+
+            <article class="summary-card">
+              <div class="summary-top">
+                <span> DAILY AVERAGE </span>
+
+                <span class="summary-icon"> ∅ </span>
+              </div>
+
+              <h2>₹410</h2>
+
+              <p>Average daily spending</p>
+            </article>
+          </section>
+
+          <!-- ================= FILTER BAR ================= -->
+
+          <section class="expense-tools">
+            <div class="search-box">
+              <span>⌕</span>
+
+              <input
+                type="search"
+                id="expenseSearch"
+                placeholder="Search expenses..."
+              />
+            </div>
+
+            <div class="filter-group">
+              <select id="categoryFilter">
+                <option>All Categories</option>
+
+                <option>Food & Dining</option>
+
+                <option>Shopping</option>
+
+                <option>Transport</option>
+
+                <option>Bills</option>
+
+                <option>Entertainment</option>
+
+                <option>Other</option>
+              </select>
+
+              <select id="dateFilter">
+                <option>This Month</option>
+
+                <option>Last Month</option>
+
+                <option>Last 3 Months</option>
+
+                <option>This Year</option>
+              </select>
+            </div>
+          </section>
+
+          <!-- ================= EXPENSE TABLE ================= -->
+
+          <section class="expenses-card">
+            <div class="table-heading">
+              <div>
+                <p>TRANSACTIONS</p>
+
+                <h2>Recent expenses</h2>
+              </div>
+
+              <button class="export-btn">Export</button>
+            </div>
+
+            <div class="table-wrapper">
+              <table>
+                <thead>
+                  <tr>
+                    <th>DATE</th>
+
+                    <th>DESCRIPTION</th>
+
+                    <th>CATEGORY</th>
+
+                    <th>PAYMENT</th>
+
+                    <th>AMOUNT</th>
+
+                    <th>ACTION</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <!-- ================= EXPENSE 1 ================= -->
+
+                  <tr data-date="2026-08-13">
+                    <td>
+                      <strong> 13 Aug </strong>
+
+                      <span> Today </span>
+                    </td>
+
+                    <td>
+                      <div class="expense-name">
+                        <div class="expense-icon">🍔</div>
+
+                        <div>
+                          <strong> Lunch </strong>
+
+                          <span> Restaurant </span>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>
+                      <span class="category"> Food & Dining </span>
+                    </td>
+
+                    <td>UPI</td>
+
+                    <td class="amount">-₹850</td>
+
+                    <td>
+                      <div class="actions">
+                        <button aria-label="Edit expense">✎</button>
+
+                        <button aria-label="Delete expense">×</button>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <!-- ================= EXPENSE 2 ================= -->
+
+                  <tr data-date="2026-08-12">
+                    <td>
+                      <strong> 12 Aug </strong>
+
+                      <span> Yesterday </span>
+                    </td>
+
+                    <td>
+                      <div class="expense-name">
+                        <div class="expense-icon">🛍️</div>
+
+                        <div>
+                          <strong> New Clothes </strong>
+
+                          <span> Clothing store </span>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>
+                      <span class="category"> Shopping </span>
+                    </td>
+
+                    <td>Card</td>
+
+                    <td class="amount">-₹1,250</td>
+
+                    <td>
+                      <div class="actions">
+                        <button aria-label="Edit expense">✎</button>
+
+                        <button aria-label="Delete expense">×</button>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <!-- ================= EXPENSE 3 ================= -->
+
+                  <tr data-date="2026-08-12">
+                    <td>
+                      <strong> 12 Aug </strong>
+
+                      <span> Yesterday </span>
+                    </td>
+
+                    <td>
+                      <div class="expense-name">
+                        <div class="expense-icon">🚕</div>
+
+                        <div>
+                          <strong> Cab Ride </strong>
+
+                          <span> Office to home </span>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>
+                      <span class="category"> Transport </span>
+                    </td>
+
+                    <td>UPI</td>
+
+                    <td class="amount">-₹420</td>
+
+                    <td>
+                      <div class="actions">
+                        <button aria-label="Edit expense">✎</button>
+
+                        <button aria-label="Delete expense">×</button>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <!-- ================= EXPENSE 4 ================= -->
+
+                  <tr data-date="2026-08-11">
+                    <td>
+                      <strong> 11 Aug </strong>
+
+                      <span> Monday </span>
+                    </td>
+
+                    <td>
+                      <div class="expense-name">
+                        <div class="expense-icon">💡</div>
+
+                        <div>
+                          <strong> Electricity Bill </strong>
+
+                          <span> Monthly bill </span>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>
+                      <span class="category"> Bills </span>
+                    </td>
+
+                    <td>Net Banking</td>
+
+                    <td class="amount">-₹1,850</td>
+
+                    <td>
+                      <div class="actions">
+                        <button aria-label="Edit expense">✎</button>
+
+                        <button aria-label="Delete expense">×</button>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <!-- ================= EXPENSE 5 ================= -->
+
+                  <tr data-date="2026-08-10">
+                    <td>
+                      <strong> 10 Aug </strong>
+
+                      <span> Sunday </span>
+                    </td>
+
+                    <td>
+                      <div class="expense-name">
+                        <div class="expense-icon">🎬</div>
+
+                        <div>
+                          <strong> Movie </strong>
+
+                          <span> Weekend entertainment </span>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>
+                      <span class="category"> Entertainment </span>
+                    </td>
+
+                    <td>Card</td>
+
+                    <td class="amount">-₹650</td>
+
+                    <td>
+                      <div class="actions">
+                        <button aria-label="Edit expense">✎</button>
+
+                        <button aria-label="Delete expense">×</button>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <!-- ================= EXPENSE 6 ================= -->
+
+                  <tr data-date="2026-08-09">
+                    <td>
+                      <strong> 09 Aug </strong>
+
+                      <span> Saturday </span>
+                    </td>
+
+                    <td>
+                      <div class="expense-name">
+                        <div class="expense-icon">🛒</div>
+
+                        <div>
+                          <strong> Groceries </strong>
+
+                          <span> Monthly groceries </span>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>
+                      <span class="category"> Food & Dining </span>
+                    </td>
+
+                    <td>UPI</td>
+
+                    <td class="amount">-₹2,100</td>
+
+                    <td>
+                      <div class="actions">
+                        <button aria-label="Edit expense">✎</button>
+
+                        <button aria-label="Delete expense">×</button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- ================= PAGINATION ================= -->
+
+            <div class="pagination">
+              <span> Showing 1–5 of 6 expenses </span>
+
+              <div class="page-buttons">
+                <!-- JavaScript creates buttons -->
+              </div>
+            </div>
+          </section>
+
+          <!-- ================= SMART INSIGHT ================= -->
+
+          <section class="expense-insight">
+            <div class="insight-symbol">✦</div>
+
+            <div>
+              <p>SMART INSIGHT</p>
+
+              <h2>Food is your highest expense category.</h2>
+
+              <span>
+                You have spent ₹2,950 on food this month, which is 35% of your
+                total expenses.
+              </span>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <!-- =====================================================
+     ADD EXPENSE MODAL
+     ===================================================== -->
+
+    <div class="expense-modal" id="expenseModal">
+      <div class="expense-modal-box">
+        <div class="modal-header">
+          <div>
+            <p>EXPENSE MANAGEMENT</p>
+
+            <h2>Add New Expense</h2>
+          </div>
+
+          <button
+            type="button"
+            class="modal-close"
+            id="closeModal"
+            aria-label="Close"
+          >
+            ×
+          </button>
+        </div>
+
+        <form id="expenseForm">
+          <div class="form-group">
+            <label for="expenseDescription"> Description </label>
+
+            <input
+              type="text"
+              id="expenseDescription"
+              placeholder="e.g. Lunch"
+              required
+            />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="expenseAmount"> Amount </label>
+
+              <input
+                type="number"
+                id="expenseAmount"
+                placeholder="e.g. 500"
+                min="1"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="expenseDate"> Date </label>
+
+              <input type="date" id="expenseDate" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="expenseCategory"> Category </label>
+
+              <select id="expenseCategory" required>
+                <option value="">Select category</option>
+
+                <option value="Food & Dining">Food & Dining</option>
+
+                <option value="Shopping">Shopping</option>
+
+                <option value="Transport">Transport</option>
+
+                <option value="Bills">Bills</option>
+
+                <option value="Entertainment">Entertainment</option>
+
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="expensePayment"> Payment Method </label>
+
+              <select id="expensePayment" required>
+                <option value="">Select payment</option>
+
+                <option value="UPI">UPI</option>
+
+                <option value="Card">Card</option>
+
+                <option value="Cash">Cash</option>
+
+                <option value="Net Banking">Net Banking</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="modal-actions">
+            <button type="button" class="cancel-btn" id="cancelModal">
+              Cancel
+            </button>
+
+            <button type="submit" class="save-expense-btn">Save Expense</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- =====================================================
+     JAVASCRIPT
+     ===================================================== -->
+    <script src="profile.js"></script>
+   <script src="expenses.js"></script>
+  </body>
+</html>

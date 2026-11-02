@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Budgets | SpendWise</title>
+
+    <link rel="stylesheet" href="budgets.css" />
+  </head>
+
+  <body>
+    <div class="budgets-layout">
+      <!-- =====================================================
+           SIDEBAR
+      ====================================================== -->
+
+      <aside class="sidebar">
+        <!-- Logo -->
+        <a href="dashboard.html" class="sidebar-logo">
+          <span>💰</span>
+          <strong>SpendWise</strong>
+        </a>
+
+        <!-- Main Navigation -->
+        <nav class="sidebar-nav">
+          <p class="nav-label">MAIN</p>
+
+          <a href="dashboard.html" class="nav-link">
+            <span>▦</span>
+            Dashboard
+          </a>
+
+          <a href="expenses.html" class="nav-link">
+            <span>↕</span>
+            Expenses
+          </a>
+
+          <a href="income.html" class="nav-link">
+            <span>↗</span>
+            Income
+          </a>
+
+          <a href="budgets.html" class="nav-link active">
+            <span>◫</span>
+            Budgets
+          </a>
+
+          <a href="savings.html" class="nav-link">
+            <span>☆</span>
+            Savings Goals
+          </a>
+
+          <p class="nav-label second-label">ANALYZE</p>
+
+          <a href="analytics.html" class="nav-link">
+            <span>◒</span>
+            Analytics
+          </a>
+
+          <a href="insights.html" class="nav-link">
+            <span>✦</span>
+            Financial Insights
+          </a>
+        </nav>
+
+        <!-- Sidebar Bottom -->
+        <div class="sidebar-bottom">
+          <a href="settings.html" class="nav-link">
+            <span>⚙</span>
+            Settings
+          </a>
+
+          <a href="index.html" class="nav-link logout">
+            <span>↪</span>
+            Logout
+          </a>
+        </div>
+      </aside>
+
+      <!-- Mobile navigation overlay -->
+      <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+
+      <!-- =====================================================
+           MAIN
+      ====================================================== -->
+
+      <main class="budgets-main">
+        <!-- =================================================
+             HEADER
+        ================================================== -->
+
+        <header class="budgets-header">
+          <!-- Hamburger -->
+          <button
+            class="hamburger-button"
+            id="hamburgerBtn"
+            type="button"
+            aria-label="Open navigation"
+            aria-expanded="false"
+          >
+            ☰
+          </button>
+
+          <!-- Mobile Logo -->
+          <div class="mobile-logo">
+            <span>💰</span>
+            SpendWise
+          </div>
+
+          <!-- Header Actions -->
+          <div class="header-actions">
+            <!-- Notification -->
+            <button
+              type="button"
+              class="notification-button"
+              aria-label="Notifications"
+            >
+              🔔
+            </button>
+
+            <!-- Profile -->
+            <div class="profile">
+              <div class="profile-avatar">P</div>
+
+              <div class="profile-info">
+                <strong>Priya</strong>
+                <span>My Account</span>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- =================================================
+             PAGE CONTENT
+        ================================================== -->
+
+        <section class="budgets-content">
+          <!-- =================================================
+               PAGE INTRO
+          ================================================== -->
+
+          <div class="page-intro">
+            <div>
+              <span class="page-label"> FINANCIAL PLANNING </span>
+
+              <h1>Budgets</h1>
+
+              <p>
+                Set spending limits and stay in control of your monthly
+                expenses.
+              </p>
+            </div>
+
+            <button type="button" class="add-budget-btn" id="addBudgetBtn">
+              <span>+</span>
+              Add Budget
+            </button>
+          </div>
+
+          <!-- =================================================
+               BUDGET SUMMARY
+          ================================================== -->
+
+          <div class="budget-summary">
+            <!-- Total Budget -->
+            <div class="summary-card">
+              <div class="summary-top">
+                <div>
+                  <span class="summary-label"> TOTAL BUDGET </span>
+
+                  <h2 id="totalBudget">₹0</h2>
+                </div>
+
+                <div class="summary-icon">◫</div>
+              </div>
+
+              <p class="summary-description">Your planned spending limit</p>
+            </div>
+
+            <!-- Total Spent -->
+            <div class="summary-card">
+              <div class="summary-top">
+                <div>
+                  <span class="summary-label"> TOTAL SPENT </span>
+
+                  <h2 id="totalSpent">₹0</h2>
+                </div>
+
+                <div class="summary-icon">↘</div>
+              </div>
+
+              <p class="summary-description">Amount spent from budgets</p>
+            </div>
+
+            <!-- Remaining -->
+            <div class="summary-card dark-card">
+              <div class="summary-top">
+                <div>
+                  <span class="summary-label"> REMAINING </span>
+
+                  <h2 id="remainingBudget">₹0</h2>
+                </div>
+
+                <div class="summary-icon">✓</div>
+              </div>
+
+              <p class="summary-description">Budget amount still available</p>
+            </div>
+
+            <!-- Active Budgets -->
+            <div class="summary-card">
+              <div class="summary-top">
+                <div>
+                  <span class="summary-label"> ACTIVE BUDGETS </span>
+
+                  <h2 id="activeBudgets">0</h2>
+                </div>
+
+                <div class="summary-icon">#</div>
+              </div>
+
+              <p class="summary-description">Currently active budgets</p>
+            </div>
+          </div>
+
+          <!-- =================================================
+               SEARCH + FILTERS
+          ================================================== -->
+
+          <div class="budget-tools">
+            <!-- Search -->
+            <div class="search-box">
+              <span class="search-icon"> ⌕ </span>
+
+              <input
+                type="text"
+                id="budgetSearch"
+                placeholder="Search budgets..."
+                autocomplete="off"
+              />
+            </div>
+
+            <!-- Category -->
+            <div class="filter-group">
+              <label for="categoryFilter"> Category </label>
+
+              <select id="categoryFilter">
+                <option value="all">All Categories</option>
+
+                <option value="Food & Dining">Food & Dining</option>
+
+                <option value="Transport">Transport</option>
+
+                <option value="Shopping">Shopping</option>
+
+                <option value="Entertainment">Entertainment</option>
+
+                <option value="Bills">Bills</option>
+
+                <option value="Healthcare">Healthcare</option>
+
+                <option value="Education">Education</option>
+
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <!-- Period -->
+            <div class="filter-group">
+              <label for="monthFilter"> Period </label>
+
+              <select id="monthFilter">
+                <option value="all">All Periods</option>
+
+                <option value="current">This Month</option>
+
+                <option value="previous">Previous Month</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- =================================================
+               BUDGET TABLE
+          ================================================== -->
+
+          <div class="budgets-card">
+            <!-- Table Heading -->
+            <div class="table-heading">
+              <div>
+                <span class="page-label"> BUDGET OVERVIEW </span>
+
+                <h2>Your Budgets</h2>
+              </div>
+
+              <button type="button" class="export-btn" id="exportBudgetBtn">
+                ↓ Export CSV
+              </button>
+            </div>
+
+            <!-- Table -->
+            <div class="table-wrapper">
+              <table>
+                <thead>
+                  <tr>
+                    <th>CATEGORY</th>
+                    <th>PERIOD</th>
+                    <th>BUDGET LIMIT</th>
+                    <th>SPENT</th>
+                    <th>REMAINING</th>
+                    <th>PROGRESS</th>
+                    <th>STATUS</th>
+                    <th>ACTIONS</th>
+                  </tr>
+                </thead>
+
+                <tbody id="budgetTableBody">
+                  <!-- JavaScript inserts rows -->
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Empty State -->
+            <div
+              class="empty-state"
+              id="emptyBudgetState"
+              style="display: none"
+            >
+              <div class="empty-icon">◫</div>
+
+              <h3>No budgets found</h3>
+
+              <p>Create your first budget to start managing your spending.</p>
+
+              <button
+                type="button"
+                class="empty-add-btn"
+                id="emptyAddBudgetBtn"
+              >
+                + Create Budget
+              </button>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+              <button type="button" id="prevPage" class="pagination-btn">
+                Previous
+              </button>
+
+              <div class="page-numbers" id="pageNumbers"></div>
+
+              <button type="button" id="nextPage" class="pagination-btn">
+                Next
+              </button>
+            </div>
+          </div>
+
+          <!-- =================================================
+               SMART INSIGHT
+          ================================================== -->
+
+          <div class="budget-insight">
+            <div class="insight-symbol">✦</div>
+
+            <div>
+              <p>SMART BUDGET INSIGHT</p>
+
+              <h2 id="budgetInsightTitle">
+                Your budget insight will appear here.
+              </h2>
+
+              <span id="budgetInsightText">
+                Add budgets to receive personalized spending insights.
+              </span>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- =====================================================
+         ADD / EDIT BUDGET MODAL
+    ====================================================== -->
+
+    <div class="modal-overlay" id="budgetModal" style="display: none">
+      <div class="budget-modal">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <div>
+            <span class="page-label"> BUDGET MANAGEMENT </span>
+
+            <h2 id="modalTitle">Add Budget</h2>
+          </div>
+
+          <button
+            type="button"
+            class="modal-close"
+            id="closeBudgetModal"
+            aria-label="Close"
+          >
+            ×
+          </button>
+        </div>
+
+        <!-- Form -->
+        <form id="budgetForm">
+          <!-- Category -->
+          <div class="form-group">
+            <label for="budgetCategory"> Category </label>
+
+            <select id="budgetCategory" required>
+              <option value="">Select category</option>
+
+              <option value="Food & Dining">Food & Dining</option>
+
+              <option value="Transport">Transport</option>
+
+              <option value="Shopping">Shopping</option>
+
+              <option value="Entertainment">Entertainment</option>
+
+              <option value="Bills">Bills</option>
+
+              <option value="Healthcare">Healthcare</option>
+
+              <option value="Education">Education</option>
+
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <!-- Amount -->
+          <div class="form-group">
+            <label for="budgetAmount"> Budget Limit </label>
+
+            <div class="amount-input">
+              <span>₹</span>
+
+              <input
+                type="number"
+                id="budgetAmount"
+                min="1"
+                step="0.01"
+                placeholder="Enter budget amount"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- Month -->
+          <div class="form-group">
+            <label for="budgetMonth"> Month </label>
+
+            <input type="month" id="budgetMonth" required />
+          </div>
+
+          <!-- Description -->
+          <div class="form-group">
+            <label for="budgetDescription"> Description </label>
+
+            <textarea
+              id="budgetDescription"
+              rows="3"
+              placeholder="Add a short description..."
+            ></textarea>
+          </div>
+
+          <input type="hidden" id="budgetId" />
+
+          <!-- Actions -->
+          <div class="modal-actions">
+            <button type="button" class="cancel-btn" id="cancelBudgetBtn">
+              Cancel
+            </button>
+
+            <button type="submit" class="save-budget-btn">Save Budget</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="profile.js"></script>
+    <script src="budgets.js"></script>
+  </body>
+</html>
