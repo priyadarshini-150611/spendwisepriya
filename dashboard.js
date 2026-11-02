@@ -2,7 +2,7 @@
    SPENDWISE DASHBOARD
    Mobile Navigation + User Profile + Real Financial Data
    ========================================================= */
-const API_BASE = `${window.location.protocol}//${window.location.hostname}:8080/api`;
+const API_BASE ="https://spendwise-backend-stvh.onrender.com/api";
 document.addEventListener("DOMContentLoaded", () => {
   const hamburgerBtn = document.getElementById("hamburgerBtn");
   const sidebar = document.querySelector(".sidebar");
