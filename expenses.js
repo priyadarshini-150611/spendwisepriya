@@ -489,100 +489,70 @@ async function updateExpenseSmartInsight(expenses) {
 /* =========================================================
    LOAD EXPENSES FROM SPRING BOOT API
    ========================================================= */
-
-   
 async function loadExpenses() {
   try {
+    // Remove old or sample transactions immediately.
+    expenseTableBody.innerHTML = `
+      <tr>
+        <td colspan="6" style="text-align:center;">
+          Loading expenses...
+        </td>
+      </tr>
+    `;
+
+    // Fetch expenses from the Spring Boot backend.
     const expenses = await apiRequest(`${API_BASE}/expenses`);
 
+    if (!Array.isArray(expenses)) {
+      throw new Error("Invalid expenses response from server.");
+    }
+
+    // Clear loading message.
     expenseTableBody.innerHTML = "";
 
+    if (expenses.length === 0) {
+      expenseTableBody.innerHTML = `
+        <tr>
+          <td colspan="6" style="text-align:center;">
+            No expenses recorded yet.
+          </td>
+        </tr>
+      `;
+
+      updateExpenseSummary([]);
+      currentPage = 1;
+      filterExpenses();
+      return;
+    }
+
+    // Display database records.
     expenses.forEach((expense) => {
       expenseTableBody.appendChild(createExpenseRow(expense));
     });
 
-    // Update summary cards using real database records.
     updateExpenseSummary(expenses);
 
-    // Update Smart Insight using the backend, with a local fallback.
     await updateExpenseSmartInsight(expenses);
 
     currentPage = 1;
     filterExpenses();
 
-    console.log(`Loaded ${expenses.length} expense(s).`);
+    console.log("Expenses loaded from backend:", expenses);
+
   } catch (error) {
     console.error("Error loading expenses:", error);
+
+    expenseTableBody.innerHTML = `
+      <tr>
+        <td colspan="6" style="text-align:center;">
+          Unable to load expenses from server.
+        </td>
+      </tr>
+    `;
+
     alert(`Unable to load expenses: ${error.message}`);
   }
 }
-
- 
-
-/* =========================================================
-   ADD OR UPDATE EXPENSE
-   ========================================================= */
-
-if (expenseForm) {
-  expenseForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
-
-    const description = descriptionInput.value.trim();
-    const amount = Number(amountInput.value);
-    const category = categoryInput.value;
-    const expenseDate = dateInput.value;
-    const paymentMethod = paymentInput.value;
-
-    if (!description || !category || !expenseDate || !paymentMethod) {
-      alert("Please complete all expense fields.");
-      return;
-    }
-
-    if (!Number.isFinite(amount) || amount <= 0) {
-      alert("Please enter an amount greater than zero.");
-      return;
-    }
-
-    const expenseData = {
-      description,
-      amount,
-      expenseDate,
-      category,
-      paymentMethod,
-    };
-
-    try {
-      saveButton.disabled = true;
-
-      if (editingRow) {
-        const expenseId = editingRow.dataset.expenseId;
-
-        await apiRequest(`${API_BASE}/expenses/${expenseId}`, {
-          method: "PUT",
-          body: JSON.stringify(expenseData),
-        });
-
-        alert("Expense updated successfully!");
-      } else {
-        await apiRequest(`${API_BASE}/expenses`, {
-          method: "POST",
-          body: JSON.stringify(expenseData),
-        });
-
-        alert("Expense added successfully!");
-      }
-
-      closeExpenseModal();
-      await loadExpenses();
-    } catch (error) {
-      console.error("Error saving expense:", error);
-      alert(`Unable to save expense: ${error.message}`);
-    } finally {
-      saveButton.disabled = false;
-    }
-  });
-}
-
 /* =========================================================
    EDIT OR DELETE EXPENSE
    ========================================================= */
